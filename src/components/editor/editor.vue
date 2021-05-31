@@ -48,6 +48,9 @@ export default {
   methods: {
     setHtml (val) {
       this.editor.txt.html(val)
+    },
+    setText (val){
+      this.editor.txt.text(val)
     }
   },
   mounted () {
