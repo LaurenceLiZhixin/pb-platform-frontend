@@ -49,7 +49,7 @@ export default {
     setHtml (val) {
       this.editor.txt.html(val)
     },
-    setText (val){
+    setText (val) {
       this.editor.txt.text(val)
     }
   },

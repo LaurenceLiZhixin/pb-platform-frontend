@@ -54,8 +54,8 @@ export default [
     path: '/compiler',
     name: '编译器',
     meta: {
-      icon: "logo-buffer",
-      title: "编译器",
+      icon: 'logo-buffer',
+      title: '编译器'
     },
     component: Main,
     children: [
@@ -64,21 +64,21 @@ export default [
         name: 'pb',
         meta: {
           icon: 'logo-buffer',
-          title: '编译器',
+          title: '编译器'
         },
-        component: () => import('@/view/components/code-editor/code-editor.vue'),
+        component: () => import('@/view/components/code-editor/code-editor.vue')
       },
       {
         path: '/dubbo3',
         name: 'dubbo3',
         meta: {
           icon: 'logo-buffer',
-          title: '编译器',
+          title: '编译器'
         },
         component: () => import('@/view/components/code-editor/code-editor.vue')
       }
     ]
-  },
+  }
   // {
   //   path: '',
   //   name: 'doc',

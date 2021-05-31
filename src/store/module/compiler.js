@@ -12,15 +12,15 @@ export default {
   getters: {
   },
   mutations: {
-    setCompiledResult(state, file){
+    setCompiledResult (state, file) {
       state.compiledFile = file
     }
   },
   actions: {
-    compileFile({commit}, { idlFile}){
+    compileFile ({ commit }, { idlFile }) {
       return new Promise((resolve, reject) => {
         getGRPCCompiledFile(
-          idlFile,
+          idlFile
         ).then(res => {
           const data = res.data
           commit('setCompiledResult', data.file)

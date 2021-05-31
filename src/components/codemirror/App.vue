@@ -70,7 +70,7 @@ export default {
     }
   },
   methods: {
-    getContent(){
+    getContent () {
       return this.code
     }
   },
