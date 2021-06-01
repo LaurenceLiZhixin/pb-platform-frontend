@@ -1,9 +1,9 @@
 import axios from '@/libs/api.request'
 
-export const getGRPCCompiledFile = (file) => {
+export const getCompiledFile = (file, subPath) => {
   return axios.request({
-    url: 'compile/grpc',
+    url: 'compile' + subPath,
     data: file,
-    method: 'get'
+    method: 'post'
   })
 }

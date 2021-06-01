@@ -1,9 +1,6 @@
 import {
-  getGRPCCompiledFile
+  getCompiledFile
 } from '@/api/compiler'
-import { saveErrorLogger } from '@/api/data'
-import config from '@/config'
-const { homeName } = config
 
 export default {
   state: {
@@ -17,15 +14,16 @@ export default {
     }
   },
   actions: {
-    compileFile ({ commit }, { idlFile }) {
+    compileFile ({ commit }, { idlFile, subPath }) {
       return new Promise((resolve, reject) => {
-        getGRPCCompiledFile(
-          idlFile
+        getCompiledFile(
+          idlFile, subPath
         ).then(res => {
           const data = res.data
           commit('setCompiledResult', data.file)
           resolve()
         }).catch(err => {
+          console.log(err);
           reject(err)
         })
       })

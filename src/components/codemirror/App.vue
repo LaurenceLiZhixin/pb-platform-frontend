@@ -14,10 +14,19 @@ import 'codemirror/mode/python/python.js'
 
 export default {
   name: 'Mycodemirror',
+  props: {
+    originCode: {
+      type: String,
+      default: ''
+    },
+    writable: {
+      type: Boolean,
+      default: true,
+    }
+  },
   data () {
     return {
-      code: '', // 编辑器绑定的值
-      content: '', // 内容
+      code: this.$props.originCode,
       mode: 'javascript',
       // 默认配置
       options: {
@@ -28,51 +37,18 @@ export default {
         styleActiveLine: true, // 高亮选中行
         hintOptions: {
           completeSingle: true // 当匹配只有一项的时候是否自动补全
-        }
+        },
+        readOnly: !this.$props.writable
       },
-      modes: [{
-        value: 'css',
-        label: 'CSS'
-      }, {
-        value: 'javascript',
-        label: 'Javascript'
-      }, {
-        value: 'html',
-        label: 'XML/HTML'
-      }, {
-        value: 'x-java',
-        label: 'Java'
-      }, {
-        value: 'x-objectivec',
-        label: 'Objective-C'
-      }, {
-        value: 'x-python',
-        label: 'Python'
-      }, {
-        value: 'x-rsrc',
-        label: 'R'
-      }, {
-        value: 'x-sh',
-        label: 'Shell'
-      }, {
-        value: 'x-sql',
-        label: 'SQL'
-      }, {
-        value: 'x-swift',
-        label: 'Swift'
-      }, {
-        value: 'x-vue',
-        label: 'Vue'
-      }, {
-        value: 'markdown',
-        label: 'Markdown'
-      }]
     }
   },
   methods: {
     getContent () {
       return this.code
-    }
+    },
+    setContent(val){
+      this.code = val
+    },
   },
   components: {
     codemirror
